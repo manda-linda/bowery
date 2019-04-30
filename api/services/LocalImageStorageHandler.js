@@ -18,8 +18,7 @@ class LocalImageStorageHandler {
                 if (!err) {
                     cb && cb({
                         location,
-                        filename,
-                        encoding: 'gzip'
+                        filename
                     });
                 }
             });
@@ -35,8 +34,7 @@ class LocalImageStorageHandler {
     // may have been missed or lost if the service crashes. 
     // Will return type = {
     //     location,
-    //     filename,
-    //     encoding: 'gzip'
+    //     filename
     // }[]
     getFilesForUpload() {
         return [];
