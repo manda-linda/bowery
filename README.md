@@ -2,7 +2,7 @@
 
 Before running, update configuration.json with the AWS credentials, S3 Bucket, and desired network throttle in mbps
 
-To run this app on http://localhost:300 run:
+To run this app on http://localhost:3000 run:
 
 `npm install`
 
