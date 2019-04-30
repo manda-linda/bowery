@@ -18,13 +18,12 @@ function setup() {
     notifyReadyForRequest();
 }
 
-function uploadImageToS3(s3, {filename, location, encoding}, retries) {
+function uploadImageToS3(s3, {filename, location}, retries) {
     const throttle = config.networkThrottle / config.parallelUploads;
     const throttler = new Throttle({rate: throttle * 125000}); // @conversion of mbps to Bps
     const params = {
         Bucket: config.AWSBucket,
         Key: filename,
-        ContentEncoding: encoding,
         Body: fs.createReadStream(location).pipe(throttler)
     }
     s3.upload(params, (err) => {
@@ -32,7 +31,7 @@ function uploadImageToS3(s3, {filename, location, encoding}, retries) {
         if (err && retries) {
             console.log(err)
             console.log(`Retrying ${filename} with ${retries} remaining retries`);
-            uploadImageToS3(s3, {filename, location, encoding}, retries--);
+            uploadImageToS3(s3, {filename, location}, retries--);
             return;
         } else if (err) {
             console.log(err);
