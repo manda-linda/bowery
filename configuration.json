@@ -1,0 +1,13 @@
+{
+    "localStoragePath": "./.tmp-images",
+    "networkThrottle": 10,
+    "parallelUploads": 5,
+    "AWSConfig": {
+        "secretAccessKey": "YOUR_SECRET_KEY",
+        "accessKeyId": "YOUR_ACCESS_KEY_ID",
+        "region": "us-east-2",
+        "s3": "2006-03-01"
+    },
+    "AWSBucket" : "YOUR_AWS_BUCKET",
+    "retries": 3
+}
